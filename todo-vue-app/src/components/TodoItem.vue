@@ -4,6 +4,7 @@
         <form>
           <input autfocus v-model="title" v-bind:placeholder="todo.title">
           <input v-model="project" v-bind:placeholder="todo.project">
+          <br />
           <button v-on:click="editingInput()">Close X</button>
         </form>
       </fieldset>
