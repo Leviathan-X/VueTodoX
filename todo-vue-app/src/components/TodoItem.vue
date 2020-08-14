@@ -2,9 +2,9 @@
   <div>
       <fieldset v-if="editing === true">
         <form>
-          <input autfocus required v-model="title" placeholder="Title">
-          <input required v-model="project" placeholder="Project">
-          <button v-on:click="editingInput">Close X</button>
+          <input autfocus v-model="title" v-bind:placeholder="todo.title">
+          <input v-model="project" v-bind:placeholder="todo.project">
+          <button v-on:click="editingInput()">Close X</button>
         </form>
       </fieldset>
       <fieldset v-else>
@@ -16,7 +16,7 @@
             <div v-else>
                 <button>Complete</button>
             </div>
-            <button v-on:click="editingInput">Edit</button>
+            <button v-on:click="editingInput()">Edit</button>
             <button>Delete</button>
       </fieldset>
     <br /><br />
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
       editingInput: function () {
-        if (this.editing === false) this.editing === true;
+        if (this.editing === false) this.editing = true;
         else this.editing === false;
       }
     }
