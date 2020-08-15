@@ -2,7 +2,7 @@
   <div class="Todo">
     <h1>{{ msg }}</h1>
     <br />
-    <TodoList v-bind:listOfTodos="todos"/>
+    <TodoList v-bind:todosArray="hardcodedTodos"/>
     
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   }, 
   data: function () {
     return {
-      todos: [{
+      hardcodedTodos: [{
        title: 'Todo A',
        project: 'Project A',
        done: false,

@@ -2,16 +2,16 @@
   <div>
       <fieldset v-if="editing === true">
         <form>
-          <input autfocus v-model="title" v-bind:placeholder="todo.title">
-          <input v-model="project" v-bind:placeholder="todo.project">
+          <input autfocus v-bind:placeholder="todoItem.title">
+          <input v-bind:placeholder="todoItem.project">
           <br />
           <button v-on:click="editingInput()">Close X</button>
         </form>
       </fieldset>
       <fieldset v-else>
-            <legend>{{ todo.title }}</legend>
-            <p>{{ todo.project }}</p>
-            <div v-if="todo.done === true">
+            <legend>{{ todoItem.title }}</legend>
+            <p>{{ todoItem.project }}</p>
+            <div v-if="todoItem.done === true">
                 <button>Completed</button>
             </div>
             <div v-else>
@@ -28,7 +28,7 @@
 export default {
     name: 'TodoItem',
     props: {
-        todo: Object
+        todoItem: Object
         },
     data: function () {
       return {

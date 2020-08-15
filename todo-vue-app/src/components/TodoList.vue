@@ -1,7 +1,7 @@
 <template>
     <ul id="todos">
-        <li v-for="todo in listOfTodos" :key="todo.title">
-            <TodoItem v-bind:todo="todo"/>
+        <li v-for="todo in todosArray" :key="todo.title">
+            <TodoItem v-bind:todoItem="todo"/>
         </li>
     </ul>
 </template>
@@ -11,8 +11,8 @@ import TodoItem from './TodoItem.vue'
 
 export default {
     name: 'TodoList',
-    props: /*['todos'],*/ {
-        listOfTodos: Array
+    props: /*['todoArray'],*/ {
+        todosArray: Array
         }, 
     components: {
         TodoItem
