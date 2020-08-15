@@ -2,10 +2,14 @@
   <div>
       <fieldset v-if="editing === true">
         <form>
-          <input autfocus v-bind:placeholder="todoItem.title">
-          <input v-bind:placeholder="todoItem.project">
+          <legend>{{ todoItem.title }}</legend>
+          <input autfocus v-model="todoItem.title" v-bind:placeholder="todoItem.title">
+          <input v-model="todoItem.project" v-bind:placeholder="todoItem.project">
           <br />
-          <button v-on:click="editingInput()">Close X</button>
+          <button v-on:click="$emit('edit-todo', this.todoItem)">Edit</button>
+          <!--<button v-on:click="editTodo()">Edit</button>-->
+          <br />
+          <button v-on:click="editingMode()">Cancel</button>
         </form>
       </fieldset>
       <fieldset v-else>
@@ -15,9 +19,9 @@
                 <button>Completed</button>
             </div>
             <div v-else>
-                <button>Complete</button>
+                <button>Pending</button>
             </div>
-            <button v-on:click="editingInput()">Edit</button>
+            <button v-on:click="editingMode()">Edit</button>
             <button v-on:click="$emit('delete-todo', todoItem)">Delete</button>
       </fieldset>
     <br /><br />
@@ -36,7 +40,7 @@ export default {
       }
     },
     methods: {
-      editingInput: function () {
+      editingMode: function () {
         if (this.editing === false) this.editing = true;
         else this.editing = false;
       }
