@@ -38,7 +38,7 @@ export default {
     methods: {
       editingInput: function () {
         if (this.editing === false) this.editing = true;
-        else this.editing === false;
+        else this.editing = false;
       }
     }
 }
