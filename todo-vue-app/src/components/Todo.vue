@@ -3,12 +3,14 @@
     <h1>{{ msg }}</h1>
     <br />
     <TodoList v-bind:todosArray="hardcodedTodos"/>
-    
+    <CreateTodo v-bind:create-todo="createTodo"/>
+    <br /><br />
   </div>
 </template>
 
 <script>
 import TodoList from './TodoList.vue'
+import CreateTodo from './CreateTodo.vue'
 
 export default {
   name: 'Todo',
@@ -16,7 +18,8 @@ export default {
     msg: String
   },
   components: {
-    TodoList
+    TodoList,
+    CreateTodo
   }, 
   data: function () {
     return {
@@ -38,7 +41,12 @@ export default {
        done: false,
      }]
     }
-  }
+  },
+   methods: {
+    createTodo (newTodo) {
+      this.hardcodedTodos.push(newTodo);
+    }
+  } 
 }
 </script>
 

@@ -15,7 +15,7 @@ export default {
         todosArray: Array
         }, 
     components: {
-        TodoItem
+        TodoItem,
     }, 
     methods: {
         deleteTodo(todoItem) {
