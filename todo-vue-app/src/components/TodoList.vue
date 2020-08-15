@@ -1,7 +1,7 @@
 <template>
     <ul id="todos">
         <li v-for="todo in todosArray" :key="todo.title">
-            <TodoItem v-bind:todoItem="todo" v-on:delete-todo="deleteTodo"/>
+            <TodoItem v-bind:todoItem="todo" v-on:delete-todo="deleteTodo" v-on:edit-todo="editTodo"/>
         </li>
     </ul>
 </template>
@@ -21,6 +21,10 @@ export default {
         deleteTodo(todoItem) {
             const todoIndex = this.todosArray.indexOf(todoItem);
             this.todosArray.splice(todoIndex, 1);
+        },
+        editTodo: function (todoItem, editedTodo) {
+            const todoIndex = this.todosArray.indexOf(todoItem);
+            this.todosArray[todoIndex]= editedTodo;
         }
     }
 }

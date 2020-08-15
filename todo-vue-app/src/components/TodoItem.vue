@@ -3,10 +3,10 @@
       <fieldset v-if="editing === true">
         <form>
           <legend>{{ todoItem.title }}</legend>
-          <input autfocus v-model="todoItem.title" v-bind:placeholder="todoItem.title">
-          <input v-model="todoItem.project" v-bind:placeholder="todoItem.project">
+          <input autfocus v-model="editedTodo.title" v-bind:placeholder="todoItem.title">
+          <input v-model="editedTodo.project" v-bind:placeholder="todoItem.project">
           <br />
-          <button v-on:click="$emit('edit-todo', this.todoItem)">Edit</button>
+          <button type="button" v-on:click="$emit('edit-todo', todoItem, editedTodo), editingMode()">Edit</button>
           <!--<button v-on:click="editTodo()">Edit</button>-->
           <br />
           <button v-on:click="editingMode()">Cancel</button>
@@ -36,7 +36,8 @@ export default {
         },
     data: function () {
       return {
-        editing : false
+        editing : false,
+        editedTodo: { ...this.todoItem }
       }
     },
     methods: {
