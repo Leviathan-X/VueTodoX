@@ -18,7 +18,7 @@
                 <button>Complete</button>
             </div>
             <button v-on:click="editingInput()">Edit</button>
-            <button>Delete</button>
+            <button v-on:click="$emit('delete-todo', todoItem)">Delete</button>
       </fieldset>
     <br /><br />
   </div>
