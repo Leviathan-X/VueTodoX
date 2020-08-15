@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <br />
     <TodoList v-bind:todosArray="hardcodedTodos"/>
-    <CreateTodo v-bind:create-todo="createTodo" v-on:create-todo="createTodo"/>
+    <CreateTodo v-bind:create-todo="createTodo" v-on:create-todo="createTodo" v-on:send-edited-todo="editTodo"/>
     <br /><br />
   </div>
 </template>
@@ -45,6 +45,10 @@ export default {
    methods: {
     createTodo (newTodo) {
       this.hardcodedTodos.push(newTodo);
+    },
+    editTodo: function (todoItem) {
+            const todoIndex = this.todosArray.indexOf(todoItem);
+            this.todosArray[todoIndex]= todoItem;
     }
   } 
 }

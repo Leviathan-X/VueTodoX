@@ -16,10 +16,10 @@
             <legend>{{ todoItem.title }}</legend>
             <p>{{ todoItem.project }}</p>
             <div v-if="todoItem.done === true">
-                <button>Completed</button>
+                <button type="button" v-on:click="editDone(), $emit('edit-todo', todoItem, editedTodo)">Completed</button>
             </div>
             <div v-else>
-                <button>Pending</button>
+                <button type="button" v-on:click="editDone(), $emit('edit-todo', todoItem, editedTodo)">Pending</button>
             </div>
             <button v-on:click="editingMode()">Edit</button>
             <button v-on:click="$emit('delete-todo', todoItem)">Delete</button>
@@ -44,11 +44,14 @@ export default {
       editingMode: function () {
         if (this.editing === false) this.editing = true;
         else this.editing = false;
+      },
+      editDone() {
+        if (this.editedTodo.done === true) this.editedTodo.done = false;
+        else this.editedTodo.done = true;
       }
     }
 }
 </script>
 
 <style>
-
 </style>
