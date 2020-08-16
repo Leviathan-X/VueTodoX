@@ -7,7 +7,6 @@
           <input v-model="editedTodo.project" v-bind:placeholder="todoItem.project">
           <br />
           <button type="button" v-on:click="$emit('edit-todo', todoItem, editedTodo), editingMode()">Edit</button>
-          <!--<button v-on:click="editTodo()">Edit</button>-->
           <br />
           <button v-on:click="editingMode()">Cancel</button>
         </form>

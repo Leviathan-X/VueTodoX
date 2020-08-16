@@ -26,7 +26,7 @@ export default {
             todoItem.title = editedTodo.title;
             todoItem.project = editedTodo.project;
             todoItem.done = editedTodo.done;
-            this.$emit('send-edited-todo', todoItem);
+            this.$emit('send-edited-todo', this.todoItem);
         }
     }
 }
