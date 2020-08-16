@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <br />
     <TodoList v-bind:todosArray="hardcodedTodos"/>
-    <CreateTodo v-bind:create-todo="createTodo" v-on:create-todo="createTodo" v-on:send-edited-todo="editTodo"/>
+    <CreateTodo v-on:create-todo="createTodo"/>
     <br /><br />
   </div>
 </template>
