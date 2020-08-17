@@ -1,6 +1,6 @@
 <template>
   <div class="Todo">
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1> -->
     <br />
     <TodoList v-bind:todosArray="hardcodedTodos"/>
     <CreateTodo v-on:create-todo="createTodo"/>
@@ -15,7 +15,7 @@ import CreateTodo from './CreateTodo.vue'
 export default {
   name: 'Todo',
   props: {
-    msg: String
+    // msg: String, 
   },
   components: {
     TodoList,

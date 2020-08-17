@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Todo msg="Todo Vue App"/>
+    <!-- <Todo msg="Todo Vue App"/> -->
+    <br />
+    <router-link to="/">Home Page</router-link>
+    <br />
+    <router-link to="/todos">Todo List</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Todo from './components/Todo.vue'
-
 export default {
   name: 'App',
   components: {
-    Todo
+
   }
 }
 </script>
